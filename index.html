@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ScleraNET</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    .container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #image1 {
+       display: block;
+    }
+    #bloc1, #bloc2 {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="bottom">
+<img id="image1" src="img/photo5465421634954439365.jpg" class="img-rounded" alt="ScleraNET">
+<div id="bloc1">
+  <h2>Upload CEL data</h2>
+  <form action="php/file-upload.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="label">Control:</label>
+      <input name="control[]" type="file" multiple="multiple" />
+    </div>
+    <div class="form-group">
+      <label for="label">Admission:</label>
+      <input name="admission[]" type="file" multiple="multiple" />
+    </div>
+    <div class="radio">
+      <label><input type="radio" value="affy" name="type" checked>Affymetrix microarray</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" value="oligo" name="type">Oligonucleotide microarray</label>
+    </div>
+    <input type="submit" class="btn btn-default" value="Submit CEL" />
+  </form>
+</div>
+<div id="bloc2">
+  <h2>Upload NET data</h2>
+  <form action="php/genes-upload.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="comment">Believed gene set:</label>
+      <textarea class="form-control" rows="5" name="gene_set"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="label">DEG :</label>
+      <input name="deg" type="file" />
+    </div>
+    <input type="submit" class="btn btn-default" value="Submit GENES" />
+  </form>
+</div>
+</div>
+</div>
+</body>
+</html>
+
